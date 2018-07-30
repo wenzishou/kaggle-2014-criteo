@@ -1,0 +1,102 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CART	./gbdt.h	/^    CART() : tnodes(max_tnodes)$/;"	f	class:CART
+CART	./gbdt.h	/^class CART $/;"	c
+Defender	./gbdt.cpp	/^    Defender() : ese(0), threshold(0) {}$/;"	f	struct:__anon2::Defender
+Defender	./gbdt.cpp	/^struct Defender$/;"	s	namespace:__anon2	file:
+GBDT	./gbdt.h	/^    GBDT(uint32_t const nr_tree) : trees(nr_tree), bias(0) {}$/;"	f	class:GBDT
+GBDT	./gbdt.h	/^class GBDT$/;"	c
+Location	./gbdt.cpp	/^    Location() : tnode_idx(1), r(0), shrinked(false) {}$/;"	f	struct:__anon2::Location
+Location	./gbdt.cpp	/^struct Location$/;"	s	namespace:__anon2	file:
+Meta	./gbdt.cpp	/^    Meta() : sl(0), s(0), nl(0), n(0), v(0.0f\/0.0f) {}$/;"	f	struct:__anon2::Meta
+Meta	./gbdt.cpp	/^struct Meta$/;"	s	namespace:__anon2	file:
+Node	./common.h	/^    Node() : i(0), v(0) {}$/;"	f	struct:Node
+Node	./common.h	/^    Node(uint32_t const i, float const v) : i(i), v(v) {}$/;"	f	struct:Node
+Node	./common.h	/^struct Node$/;"	s
+Option	./train.cpp	/^    Option() : nr_tree(30), nr_thread(1) {}$/;"	f	struct:__anon3::Option
+Option	./train.cpp	/^struct Option$/;"	s	namespace:__anon3	file:
+Problem	./common.h	/^    Problem() : nr_instance(0), nr_field(0), nr_sparse_field(0) {}$/;"	f	struct:Problem
+Problem	./common.h	/^    Problem(uint32_t const nr_instance, uint32_t const nr_field) $/;"	f	struct:Problem
+Problem	./common.h	/^struct Problem$/;"	s
+SI	./common.h	/^    std::vector<uint32_t> SI, SJ;$/;"	m	struct:Problem
+SIP	./common.h	/^    std::vector<uint64_t> SIP, SJP;$/;"	m	struct:Problem
+SJ	./common.h	/^    std::vector<uint32_t> SI, SJ;$/;"	m	struct:Problem
+SJP	./common.h	/^    std::vector<uint64_t> SIP, SJP;$/;"	m	struct:Problem
+Timer	./timer.cpp	/^Timer::Timer()$/;"	f	class:Timer
+Timer	./timer.h	/^class Timer$/;"	c
+TrS_path	./train.cpp	/^    std::string Tr_path, TrS_path, Va_path, VaS_path, Va_out_path, Tr_out_path;$/;"	m	struct:__anon3::Option	file:
+Tr_out_path	./train.cpp	/^    std::string Tr_path, TrS_path, Va_path, VaS_path, Va_out_path, Tr_out_path;$/;"	m	struct:__anon3::Option	file:
+Tr_path	./train.cpp	/^    std::string Tr_path, TrS_path, Va_path, VaS_path, Va_out_path, Tr_out_path;$/;"	m	struct:__anon3::Option	file:
+TreeNode	./gbdt.h	/^    TreeNode() : idx(0), feature(-1), threshold(0), gamma(0) {} $/;"	f	struct:TreeNode
+TreeNode	./gbdt.h	/^struct TreeNode$/;"	s
+VaS_path	./train.cpp	/^    std::string Tr_path, TrS_path, Va_path, VaS_path, Va_out_path, Tr_out_path;$/;"	m	struct:__anon3::Option	file:
+Va_out_path	./train.cpp	/^    std::string Tr_path, TrS_path, Va_path, VaS_path, Va_out_path, Tr_out_path;$/;"	m	struct:__anon3::Option	file:
+Va_path	./train.cpp	/^    std::string Tr_path, TrS_path, Va_path, VaS_path, Va_out_path, Tr_out_path;$/;"	m	struct:__anon3::Option	file:
+X	./common.h	/^    std::vector<std::vector<Node>> X, Z;$/;"	m	struct:Problem
+Y	./common.h	/^    std::vector<float> Y;$/;"	m	struct:Problem
+Z	./common.h	/^    std::vector<std::vector<Node>> X, Z;$/;"	m	struct:Problem
+_COMMON_H_	./common.h	4;"	d
+argv_to_args	./common.cpp	/^argv_to_args(int const argc, char const * const * const argv)$/;"	f
+begin	./timer.h	/^    std::chrono::high_resolution_clock::time_point begin;$/;"	m	class:Timer
+bias	./gbdt.h	/^    float bias;$/;"	m	class:GBDT
+calc_bias	./gbdt.cpp	/^float calc_bias(std::vector<float> const &Y)$/;"	f	namespace:__anon2
+construct_instance	./common.h	/^construct_instance(Problem const &prob, uint32_t const i)$/;"	f
+duration	./timer.h	/^    std::chrono::milliseconds duration;$/;"	m	class:Timer
+ese	./gbdt.cpp	/^    double ese;$/;"	m	struct:__anon2::Defender	file:
+feature	./gbdt.h	/^    int32_t feature;$/;"	m	struct:TreeNode
+fit	./gbdt.cpp	/^void CART::fit(Problem const &prob, std::vector<float> const &R, $/;"	f	class:CART
+fit	./gbdt.cpp	/^void GBDT::fit(Problem const &Tr, Problem const &Va)$/;"	f	class:GBDT
+flag	./common.h	6;"	d
+gamma	./gbdt.h	/^    float threshold, gamma;$/;"	m	struct:TreeNode
+get	./timer.cpp	/^float Timer::get()$/;"	f	class:Timer
+get_indices	./gbdt.cpp	/^std::vector<uint32_t> GBDT::get_indices(float const * const x) const$/;"	f	class:GBDT
+get_nr_field	./common.cpp	/^uint32_t get_nr_field(std::string const &path)$/;"	f	namespace:__anon1
+get_nr_line	./common.cpp	/^uint32_t get_nr_line(std::string const &path)$/;"	f	namespace:__anon1
+i	./common.h	/^    uint32_t i;$/;"	m	struct:Node
+idx	./gbdt.h	/^    uint32_t idx;$/;"	m	struct:TreeNode
+kMaxLineSize	./common.cpp	/^uint32_t const kMaxLineSize = 1000000;$/;"	m	namespace:__anon1	file:
+main	./train.cpp	/^int main(int const argc, char const * const * const argv)$/;"	f
+max_depth	./gbdt.h	/^    static uint32_t max_depth, max_tnodes;$/;"	m	class:CART
+max_tnodes	./gbdt.cpp	/^uint32_t CART::max_tnodes = static_cast<uint32_t>(pow(2, CART::max_depth+1));$/;"	m	class:CART	file:
+max_tnodes	./gbdt.h	/^    static uint32_t max_depth, max_tnodes;$/;"	m	class:CART
+mtx	./gbdt.cpp	/^std::mutex CART::mtx;$/;"	m	class:CART	file:
+mtx	./gbdt.h	/^    static std::mutex mtx;$/;"	m	class:CART
+n	./gbdt.cpp	/^    uint32_t nl, n;$/;"	m	struct:__anon2::Meta	file:
+nl	./gbdt.cpp	/^    uint32_t nl, n;$/;"	m	struct:__anon2::Meta	file:
+nr_field	./common.h	/^    uint32_t const nr_instance, nr_field;$/;"	m	struct:Problem
+nr_instance	./common.h	/^    uint32_t const nr_instance, nr_field;$/;"	m	struct:Problem
+nr_sparse_field	./common.h	/^    uint32_t nr_sparse_field;$/;"	m	struct:Problem
+nr_thread	./train.cpp	/^    uint32_t nr_tree, nr_thread;$/;"	m	struct:__anon3::Option	file:
+nr_tree	./train.cpp	/^    uint32_t nr_tree, nr_thread;$/;"	m	struct:__anon3::Option	file:
+open_c_file	./common.cpp	/^FILE *open_c_file(std::string const &path, std::string const &mode)$/;"	f
+parse_option	./train.cpp	/^Option parse_option(std::vector<std::string> const &args)$/;"	f	namespace:__anon3
+predict	./gbdt.cpp	/^float GBDT::predict(float const * const x) const$/;"	f	class:GBDT
+predict	./gbdt.cpp	/^std::pair<uint32_t, float> CART::predict(float const * const x) const$/;"	f	class:CART
+r	./gbdt.cpp	/^    float r;$/;"	m	struct:__anon2::Location	file:
+read_data	./common.cpp	/^Problem read_data(std::string const &dense_path, std::string const &sparse_path)$/;"	f
+read_dense	./common.cpp	/^void read_dense(Problem &prob, std::string const &path)$/;"	f	namespace:__anon1
+read_sparse	./common.cpp	/^void read_sparse(Problem &prob, std::string const &path)$/;"	f	namespace:__anon1
+reset	./timer.cpp	/^void Timer::reset()$/;"	f	class:Timer
+s	./gbdt.cpp	/^    double sl, s;$/;"	m	struct:__anon2::Meta	file:
+scan	./gbdt.cpp	/^void scan($/;"	f	namespace:__anon2
+scan_sparse	./gbdt.cpp	/^void scan_sparse($/;"	f	namespace:__anon2
+shrinked	./gbdt.cpp	/^    bool shrinked;$/;"	m	struct:__anon2::Location	file:
+sl	./gbdt.cpp	/^    double sl, s;$/;"	m	struct:__anon2::Meta	file:
+sort_problem	./common.cpp	/^void sort_problem(Problem &prob)$/;"	f	namespace:__anon1
+threshold	./gbdt.cpp	/^    float threshold;$/;"	m	struct:__anon2::Defender	file:
+threshold	./gbdt.h	/^    float threshold, gamma;$/;"	m	struct:TreeNode
+tic	./timer.cpp	/^void Timer::tic()$/;"	f	class:Timer
+tnode_idx	./gbdt.cpp	/^    uint32_t tnode_idx;$/;"	m	struct:__anon2::Location	file:
+tnodes	./gbdt.h	/^    std::vector<TreeNode> tnodes;$/;"	m	class:CART
+toc	./timer.cpp	/^float Timer::toc()$/;"	f	class:Timer
+train_help	./train.cpp	/^std::string train_help()$/;"	f	namespace:__anon3
+trees	./gbdt.h	/^    std::vector<CART> trees;$/;"	m	class:GBDT
+v	./common.h	/^    float v;$/;"	m	struct:Node
+v	./gbdt.cpp	/^    float v;$/;"	m	struct:__anon2::Meta	file:
+verbose	./gbdt.cpp	/^bool CART::verbose = false;$/;"	m	class:CART	file:
+verbose	./gbdt.h	/^    static bool verbose;$/;"	m	class:CART
+write	./train.cpp	/^void write(Problem const &prob, GBDT const &gbdt, std::string const &path)$/;"	f	namespace:__anon3

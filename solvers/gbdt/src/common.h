@@ -22,6 +22,8 @@ struct Node
 
 struct Problem
 {
+    //X: 保存按各个field由小至大排序
+    //Z: 原始的各个instance的结果，未排序
     Problem() : nr_instance(0), nr_field(0), nr_sparse_field(0) {}
     Problem(uint32_t const nr_instance, uint32_t const nr_field) 
         : nr_instance(nr_instance), nr_field(nr_field), nr_sparse_field(0),
@@ -31,6 +33,10 @@ struct Problem
     uint32_t const nr_instance, nr_field;
     uint32_t nr_sparse_field;
     std::vector<std::vector<Node>> X, Z;
+
+    //SJ保存稀疏特征
+    //SJ：所有instance为1的位置如    [2,4,5,  1,5, 2]
+    //SJP: 各个instance的边界，对以上[0,      3,   5,6]
     std::vector<uint32_t> SI, SJ;
     std::vector<uint64_t> SIP, SJP;
     std::vector<float> Y;

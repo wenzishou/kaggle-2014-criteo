@@ -6,6 +6,10 @@
 
 struct TreeNode
 {
+    // idx: CART为vector形式，idx表示在vector中的位置 
+    //feature:为-1表示叶结节
+    //threshold: 为选择左子节点或右子节点的阈值
+    //gamma: 节点结点的最终输出值
     TreeNode() : idx(0), feature(-1), threshold(0), gamma(0) {} 
     uint32_t idx;
     int32_t feature;

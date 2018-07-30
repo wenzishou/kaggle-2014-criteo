@@ -23,7 +23,7 @@ uint32_t get_nr_line(std::string const &path)
 
     return nr_line;
 }
-
+//取得稠密矩阵的列数
 uint32_t get_nr_field(std::string const &path)
 {
     FILE *f = open_c_file(path.c_str(), "r");

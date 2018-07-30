@@ -19,13 +19,14 @@ We recommend you either check the above document, or use some exisiting packages
 
 namespace {
 
+//计算GBDT的bias，赋给gbdt的成员bias
 float calc_bias(std::vector<float> const &Y)
 {
     double y_bar = std::accumulate(Y.begin(), Y.end(), 0.0);
     y_bar /= static_cast<double>(Y.size());
     return static_cast<float>(log((1.0+y_bar)/(1.0-y_bar)));
 }
-
+//保存每个instance在CART树中的Node的index，方便计算
 struct Location
 {
     Location() : tnode_idx(1), r(0), shrinked(false) {}
@@ -33,7 +34,7 @@ struct Location
     float r;
     bool shrinked;
 };
-
+//记录每个CART中的节点信息，进行左右划分数据
 struct Meta
 {
     Meta() : sl(0), s(0), nl(0), n(0), v(0.0f/0.0f) {}
@@ -79,6 +80,7 @@ void scan(
 
             if(dnode.v != meta.v)
             {
+                //meat.s记录总的偏差
                 double const sr = meta.s - meta.sl;
                 uint32_t const nr = meta.n - meta.nl;
                 double const current_ese = 
@@ -132,8 +134,7 @@ void scan_sparse(
         {
             Meta const &meta = metas[f];
             if(meta.nl == 0)
-                continue;
-            
+                continue; 
             double const sr = meta.s - meta.sl;
             uint32_t const nr = meta.n - meta.nl;
             double const current_ese = 
@@ -158,6 +159,8 @@ uint32_t CART::max_tnodes = static_cast<uint32_t>(pow(2, CART::max_depth+1));
 std::mutex CART::mtx;
 bool CART::verbose = false;
 
+//R:要拟合的值，作为输入
+//F1:fit后每个instance的拟合值, 作为输出 
 void CART::fit(Problem const &prob, std::vector<float> const &R, 
     std::vector<float> &F1)
 {
@@ -252,6 +255,7 @@ void CART::fit(Problem const &prob, std::vector<float> const &R,
             TreeNode &tnode = tnodes[tnode_idx];
             if(tnode.feature == -1)
             {
+                //其中一个是数据不划分最后，不再往下细分
                 location.shrinked = true;
             }
             else if(static_cast<uint32_t>(tnode.feature) < nr_field)
@@ -289,6 +293,7 @@ void CART::fit(Problem const &prob, std::vector<float> const &R,
         float const r = locations[i].r;
         uint32_t const tnode_idx = locations[i].tnode_idx;
         tmp[tnode_idx].first += r;
+        //根据文章，这里应该是fabs(r)*(2-fabs(r))
         tmp[tnode_idx].second += fabs(r)*(1-fabs(r));
     }
 
@@ -304,6 +309,7 @@ void CART::fit(Problem const &prob, std::vector<float> const &R,
         F1[i] = tnodes[locations[i].tnode_idx].gamma;
 }
 
+//根据输入返回树节点索引及值
 std::pair<uint32_t, float> CART::predict(float const * const x) const
 {
     uint32_t tnode_idx = 1;
@@ -321,11 +327,13 @@ std::pair<uint32_t, float> CART::predict(float const * const x) const
 
     return std::make_pair(-1, -1);
 }
-
+//Tr: train
+//Va: validation data
 void GBDT::fit(Problem const &Tr, Problem const &Va)
 {
     bias = calc_bias(Tr.Y);
-
+    //F_Tr:对每个instance, 前N个CART树的预估值的和
+    //F_Va:
     std::vector<float> F_Tr(Tr.nr_instance, bias), F_Va(Va.nr_instance, bias);
 
     Timer timer;
